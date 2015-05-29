@@ -1,8 +1,13 @@
-(function() {
-	if (!('jQuery' in window) || !('Firebase' in window)) {
-		throw new Error('jQueryかFirebaseが読み込まれてない');
+requirejs.config({
+	'paths': {
+		'Firebase': 'https://cdn.firebase.com/js/client/2.2.5/firebase'
+	},
+	'shim': {
+		'Firebase': {'exports': 'Firebase'}
 	}
+});
 
+require(['Firebase'], function(Firebase) {
 	var firebase = new Firebase('https://analoggamelab-vote.firebaseio.com/');
 
 	// 投票
@@ -14,4 +19,4 @@
 	// 投票されたら 表示更新
 	firebase.on('child_changed', function(snapshot) {
 	});
-})();
+});
