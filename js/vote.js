@@ -1,3 +1,4 @@
+// requirejsの設定
 requirejs.config({
 	'paths': {
 		'Firebase': 'https://cdn.firebase.com/js/client/2.2.5/firebase'
@@ -7,9 +8,12 @@ requirejs.config({
 	}
 });
 
+// main
 require(['Firebase'], function(Firebase) {
+	// Firebaseインスタンス
 	var firebase = new Firebase('https://analoggamelab-vote.firebaseio.com/');
 
+	// 現在時刻を[MM/DD hh:mm:ss]にして返す
 	var getDateString = function() {
 		var fix = function(num) {return num > 9 ? ''+num : '0'+num;};
 		var date = new Date();
