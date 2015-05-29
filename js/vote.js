@@ -33,4 +33,8 @@ require(['Firebase', './view', './util'], function(Firebase, view, util) {
 	});
 
 	view.appendToCarousel('イスタンブール', 'http://ecx.images-amazon.com/images/I/51L5cY62qDL.jpg');
+	view.appendToCarousel('イスタンブール', 'http://ecx.images-amazon.com/images/I/51L5cY62qDL.jpg');
+	view.appendToCarousel('イスタンブール', 'http://ecx.images-amazon.com/images/I/51L5cY62qDL.jpg');
+	view.appendToCarousel('イスタンブール', 'http://ecx.images-amazon.com/images/I/51L5cY62qDL.jpg');
+	view.appendToCarousel('イスタンブール', 'http://ecx.images-amazon.com/images/I/51L5cY62qDL.jpg');
 });

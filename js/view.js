@@ -1,7 +1,7 @@
 define(function() {
 	var carousel = document.querySelector('#carousel');
 	var carouselElementTemplate = document.querySelector('#carousel-element-template');
-	var draft = document.querySelector('#draft');
+	var chosen = document.querySelector('#chosen');
 
 	return {
 		// 投票対象(の画像)を一覧に追加
@@ -13,8 +13,8 @@ define(function() {
 			carousel.appendChild(e);
 		},
 		// 投票対象をセット
-		'changeDraft': function(title) {
-			// draftのテキストをtitleに
+		'changeChosen': function(title) {
+			// chosenのテキストをtitleに
 		}
 	};
 });
