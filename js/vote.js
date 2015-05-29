@@ -9,29 +9,28 @@ requirejs.config({
 });
 
 // main
-require(['Firebase'], function(Firebase) {
+require(['Firebase', './view', './util'], function(Firebase, view, util) {
 	// Firebaseインスタンス
 	var firebase = new Firebase('https://analoggamelab-vote.firebaseio.com/');
 
-	// 現在時刻を[MM/DD hh:mm:ss]にして返す
-	var getDateString = function() {
-		var fix = function(num) {return num > 9 ? ''+num : '0'+num;};
-		var date = new Date();
-		return [
-			date.getMonth()+1, '/',
-			date.getDate(), ' ',
-			fix(date.getHours()), ':',
-			fix(date.getMinutes()), ':',
-			fix(date.getSeconds())
-		].join('');
-	};
+	// Firebaseに接続したら 投票対象らを表示
+	firebase.child('targets').once('value', function(snapshot) {
+		snapshot.forEach(function(childSnapshot) {
+			// view.appendToCarousel
+		})
+	});
+
+	// Firebaseの投票インスタンス
+	var votes = firebase.child('votes');
 
 	// 投票
 	var vote = function(name, value) {
-		firebase.set({'name': name, 'value': value, 'date': getDateString()});
+		votes.set({'name': name, 'value': value, 'date': util.getDateString()});
 	};
 
 	// 投票されたら 表示更新
-	firebase.on('child_changed', function(snapshot) {
+	votes.on('child_changed', function(snapshot) {
 	});
+
+	view.appendToCarousel('イスタンブール', 'http://ecx.images-amazon.com/images/I/51L5cY62qDL.jpg');
 });
