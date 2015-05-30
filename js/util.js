@@ -11,6 +11,25 @@ define(function() {
 				fix(date.getMinutes()), ':',
 				fix(date.getSeconds())
 			].join('');
+		},
+		// querySelectorをMaybeで返す
+		'maybeQuerySelector': function(query, baseElement) {
+			var Maybe = function(v) {
+				if (v != null) {this.just = v;}
+				else {this.none = true;}
+			};
+			Maybe.prototype.map = function(f) {
+				return this.none ? new Maybe() : new Maybe(f(this.just));
+			};
+			Maybe.prototype.return = function() {
+				if (this.none) {throw new ReferenceError('Maybe.return(): there is only null');}
+				return this.just;
+			}
+
+			var parent = baseElement ? baseElement : document;
+			var e = parent.querySelector(query);
+
+			return new Maybe(e? e : null);
 		}
 	}
 });

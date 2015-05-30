@@ -15,7 +15,6 @@ require(['Firebase', './view', './util'], function(Firebase, view, util) {
 
 	// Firebaseに接続したら 投票対象らを表示
 	firebase.child('targets').once('value', function(snapshot) {
-		window.console.log(snapshot.val());
 		snapshot.forEach(function(childSnapshot) {
 			if (childSnapshot.key() === '_dummy') {return;}
 			view.appendToShowcase(childSnapshot.key(), childSnapshot.val());
