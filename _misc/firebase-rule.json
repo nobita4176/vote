@@ -1,13 +1,15 @@
 {
   "rules": {
-    ".read": true,
-    ".write": true,
     "targets": {
+      ".read": true,
+      ".write": "auth.isAdmin === true",
       "$target": {
         ".validate": "newData.isString() && newData.val().contains('..') === false"
       }
     },
     "votes": {
+      ".read": true,
+      ".write": true,
       "$name": {
         ".validate": "newData.hasChildren(['value1', 'value2', 'value3', 'datetime'])",
         "value1": {
@@ -20,7 +22,7 @@
           ".validate": "newData.isString()"
         },
         "datetime": {
-          ".validate": "newData.isNumber()"
+          ".validate": "newData.isNumber() && newData.val() < 1433084400000"
         }
       }
     }
