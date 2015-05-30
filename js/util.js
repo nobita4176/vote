@@ -30,6 +30,15 @@ define(function() {
 			var e = parent.querySelector(query);
 
 			return new Maybe(e? e : null);
+		},
+		// 親要素を遡ってcondにマッチするものを返す
+		'searchByAncestor': function(base, cond) {
+			var e = base;
+			while (e.parentNode) {
+				e = e.parentNode;
+				if (cond(e)) {return e;}
+			}
+			return null; // not found
 		}
 	}
 });

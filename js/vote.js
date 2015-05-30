@@ -9,7 +9,7 @@ requirejs.config({
 });
 
 // main
-require(['Firebase', './view', './util'], function(Firebase, view, util) {
+require(['Firebase', './view', './event', './util'], function(Firebase, view, event, util) {
 	// Firebaseインスタンス
 	var firebase = new Firebase('https://analoggamelab-vote.firebaseio.com/');
 
@@ -18,7 +18,8 @@ require(['Firebase', './view', './util'], function(Firebase, view, util) {
 		snapshot.forEach(function(childSnapshot) {
 			if (childSnapshot.key() === '_dummy') {return;}
 			view.appendToShowcase(childSnapshot.key(), childSnapshot.val());
-		})
+		});
+		event.registerShowcaseEvent();
 	});
 
 	// Firebaseの投票インスタンス
@@ -26,8 +27,13 @@ require(['Firebase', './view', './util'], function(Firebase, view, util) {
 
 	// 投票
 	var vote = function(name, values) {
-		votes.child(name).set({'value1': values[0], 'value2': values[1], 'value3': values[2], 'datetime': (new Date()).valueOf()});
+		if (name.length === 0) {throw new Error('vote(): 名前を入力してください');}
+		votes.child(name).set({
+			'value1': values[0], 'value2': values[1], 'value3': values[2],
+			'datetime': (new Date()).valueOf()
+		});
 	};
+	event.registerFooterEvent(vote);
 
 	// 投票されたら 表示更新
 	votes.on('child_changed', function(childSnapshot, prevChildName) {
