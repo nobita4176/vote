@@ -25,8 +25,8 @@ require(['Firebase', './view', './util'], function(Firebase, view, util) {
 	var votes = firebase.child('votes');
 
 	// 投票
-	var vote = function(name, value) {
-		votes.child(name).set({'value': value, 'datetime': (new Date()).valueOf()});
+	var vote = function(name, values) {
+		votes.child(name).set({'value1': values[0], 'value2': values[1], 'value3': values[2], 'datetime': (new Date()).valueOf()});
 	};
 
 	// 投票されたら 表示更新

@@ -9,8 +9,14 @@
     },
     "votes": {
       "$name": {
-        ".validate": "newData.hasChildren(['value', 'datetime'])",
-        "value": {
+        ".validate": "newData.hasChildren(['value1', 'value2', 'value3', 'datetime'])",
+        "value1": {
+          ".validate": "newData.isString() && newData.val().length > 0"
+        },
+        "value2": {
+          ".validate": "newData.isString()"
+        },
+        "value3": {
           ".validate": "newData.isString()"
         },
         "datetime": {
