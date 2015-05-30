@@ -9,12 +9,12 @@
     },
     "votes": {
       "$name": {
-        ".validate": "newData.hasChildren(['value', 'date'])",
+        ".validate": "newData.hasChildren(['value', 'datetime'])",
         "value": {
           ".validate": "newData.isString()"
         },
-        "date": {
-          ".validate": "newData.isString()"
+        "datetime": {
+          ".validate": "newData.isNumber()"
         }
       }
     }

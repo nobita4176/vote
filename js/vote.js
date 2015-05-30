@@ -18,7 +18,7 @@ require(['Firebase', './view', './util'], function(Firebase, view, util) {
 		window.console.log(snapshot.val());
 		snapshot.forEach(function(childSnapshot) {
 			if (childSnapshot.key() === '_dummy') {return;}
-			// view.appendToCarousel
+			view.appendToCarousel(childSnapshot.key(), childSnapshot.val());
 		})
 	});
 
@@ -27,17 +27,11 @@ require(['Firebase', './view', './util'], function(Firebase, view, util) {
 
 	// 投票
 	var vote = function(name, value) {
-		votes.child(name).set({'value': value, 'date': util.getDateString()});
+		votes.child(name).set({'value': value, 'datetime': (new Date()).valueOf()});
 	};
 
 	// 投票されたら 表示更新
 	votes.on('child_changed', function(childSnapshot, prevChildName) {
 		if (childSnapshot.key() === '_dummy') {return;}
 	});
-
-	view.appendToCarousel('イスタンブール', 'http://ecx.images-amazon.com/images/I/51L5cY62qDL.jpg');
-	view.appendToCarousel('イスタンブール', 'http://ecx.images-amazon.com/images/I/51L5cY62qDL.jpg');
-	view.appendToCarousel('イスタンブール', 'http://ecx.images-amazon.com/images/I/51L5cY62qDL.jpg');
-	view.appendToCarousel('イスタンブール', 'http://ecx.images-amazon.com/images/I/51L5cY62qDL.jpg');
-	view.appendToCarousel('イスタンブール', 'http://ecx.images-amazon.com/images/I/51L5cY62qDL.jpg');
 });
