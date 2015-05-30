@@ -1,6 +1,7 @@
 define(['./util'], function(util) {
 	var showcase = document.querySelector('#showcase');
 	var showcaseElementTemplate = document.querySelector('#showcase-element-template');
+	var modalTemplate = document.querySelector('#modal-template');
 
 	// 投票対象をセット
 	var changeChosen = function(rank, title) {
@@ -70,6 +71,31 @@ define(['./util'], function(util) {
 			});
 			var title = sample.dataset.title;
 			changeChosen(rank, title);
+		},
+		// modalの表示
+		'showModal': function(title, text) {
+			// 既存のを消す(無いとは思うけど)
+			if (document.querySelector('#modal')) {
+				document.body.removeChild(document.querySelector('#modal'));
+			}
+
+			// テンプレート実体化
+			var e = document.importNode(modalTemplate.content, true);
+
+			// テキスト挿入
+			var titleE = e.querySelector('.title');
+			titleE.textContent = title;
+			var textE = e.querySelector('.text');
+			textE.textContent = text;
+
+			// [x]押したら閉じる
+			var closeButton = e.querySelector('.close');
+			closeButton.addEventListener('click', function(ev) {
+				document.body.removeChild(document.querySelector('#modal'));
+			});
+
+			// bodyに追加
+			document.body.appendChild(e);
 		}
 	};
 });

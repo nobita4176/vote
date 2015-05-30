@@ -45,6 +45,10 @@ define(['view'], function(view) {
 
 				console.log(name, values);
 				vote(name, values);
+				view.showModal(
+					'Thanks!!!',
+					'投票ありがとうございます. 結果発表をお待ちください.'
+				);
 			});
 		}
 	};
