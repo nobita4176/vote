@@ -13,9 +13,19 @@
 	<main id="showcase" class="pure-g">
 	</main>
 	<footer class="pure-g">
-		<div id="chosen" class="pure-u-24-24 pure-u-md-12-24"></div>
-		<div id="vote" class="pure-u-16-24 pure-u-md-4-24 pure-button">投票!</div>
-		<div id="limit" class="pure-u-8-24"></div>
+		<div id="chosen" class="pure-u-24-24 pure-u-md-12-24 pure-form">
+			<label>Vote:</label>
+			<input id="chosen-1" type="text" placeholder="1:"></input>
+			<input id="chosen-2" type="text" placeholder="2:"></input>
+			<input id="chosen-3" type="text" placeholder="3:"></input>
+		</div>
+		<form id="name-container" class="pure-u-16-24 pure-u-md-7-24 pure-form">
+			<label for="name">Name:</label>
+			<input id="name" type="text" placeholder="あなぐらたろう">
+		</form>
+		<div id="vote" class="pure-u-8-24 pure-u-md-5-24 pure-button">
+			投票!
+		</div>
 	</footer>
 	<template id="showcase-element-template">
 		<div class="showcase-element pure-u-12-24 pure-u-md-6-24">

@@ -9,9 +9,14 @@ footer {
 	position: fixed;
 	bottom: 0;
 	width: 100vw;
+	color: #ffffff;
 	background-color: rgba(64,64,64,.8);
 }
+footer input {
+	color: #222222;
+}
 #showcase {
+	padding-bottom: 4rem;
 }
 .showcase-element {
 	height: 100%;
@@ -20,7 +25,35 @@ footer {
 .showcase-element img {
 	width: 100%;
 }
+#chosen {
+	font-size: 1rem;
+	line-height: 1em;
+}
+#chosen > input {
+	display: inline-block;
+	margin: 0.5em 0;
+	width: 12em;
+	max-width: 32%;
+}
+#name-container {
+	text-align: center;
+	font-size: 1rem;
+	padding: 0.5em 0;
+}
+footer label {
+	display: none;
+}
+@media screen and (min-width: 64em) {
+	footer label {
+		display: inline;
+	}
+}
+#name {
+	max-width: 100%;
+	width: 16em;
+	text-align: left;
+}
 #vote {
-	font-size: 2.5rem;
+	font-size: 2rem;
 	line-height: 1;
 }
