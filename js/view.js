@@ -10,6 +10,10 @@ define(function() {
 			var img = e.querySelector('img');
 			img.setAttribute('alt', title);
 			img.setAttribute('src', path);
+			var titleE = e.querySelector('.detail .title');
+			titleE.textContent = title;
+			var search = e.querySelector('.detail .search');
+			search.setAttribute('href', 'https://www.google.co.jp/search?q=boardgame+' + encodeURI(title));
 			showcase.appendChild(e);
 		},
 		// 投票対象をセット

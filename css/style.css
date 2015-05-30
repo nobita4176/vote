@@ -19,11 +19,14 @@ footer input {
 	padding-bottom: 4rem;
 }
 .showcase-element {
-	height: 100%;
-	vertical-align: middle;
+	height: 50vh;
+	box-sizing: border-box;
+	position: relative;
+	overflow-y: hidden;
 }
 .showcase-element img {
 	width: 100%;
+	vertical-align: middle;
 }
 #chosen {
 	font-size: 1rem;
@@ -55,5 +58,36 @@ footer label {
 }
 #vote {
 	font-size: 2rem;
-	line-height: 1;
+	line-height: 1em;
+}
+.showcase-element .detail {
+	display: none;
+
+	position: absolute;
+	width: 100%;
+	top: 0; bottom: 0; left: 0; right: 0;
+	margin: auto;
+	height: 10em;
+	color: #ffffff;
+	background-color: rgba(0, 0, 0, 0.5);
+	text-align: center;
+}
+.showcase-element.active .detail {
+	display: block;
+}
+.detail .title {
+	font-size: 2.5rem;
+	white-space: nowrap;
+}
+.detail .search {
+	display: block;
+	font-size: 5rem;
+	color: #cccccc;
+	text-shadow: .05em .05em .05em #666666;
+}
+.detail .search:hover {
+	text-shadow: .05em .05em .3em #ffffff, .05em .05em .05em #666666;
+}
+.showcase-element.chosen {
+	border: 1vmax solid #ffff99;
 }
