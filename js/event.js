@@ -34,6 +34,15 @@ define(['view'], function(view) {
 					function(e) {return e.value;}
 				);
 
+				if (name.length === 0) {
+					alert('名前を入力してください');
+					return;
+				}
+				if (values[0].length === 0) {
+					alert('1つ目の投票先は必須です');
+					return;
+				}
+
 				console.log(name, values);
 				vote(name, values);
 			});
