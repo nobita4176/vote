@@ -18,7 +18,7 @@ require(['Firebase', './view', './util'], function(Firebase, view, util) {
 		window.console.log(snapshot.val());
 		snapshot.forEach(function(childSnapshot) {
 			if (childSnapshot.key() === '_dummy') {return;}
-			view.appendToCarousel(childSnapshot.key(), childSnapshot.val());
+			view.appendToShowcase(childSnapshot.key(), childSnapshot.val());
 		})
 	});
 

@@ -11,13 +11,13 @@ footer {
 	width: 100vw;
 	background-color: rgba(64,64,64,.8);
 }
-#carousel {
+#showcase {
 }
-.carousel-element {
+.showcase-element {
 	height: 100%;
 	vertical-align: middle;
 }
-.carousel-element img {
+.showcase-element img {
 	width: 100%;
 }
 #vote {
