@@ -19,7 +19,7 @@ footer input {
 	padding-bottom: 4rem;
 }
 .showcase-element {
-	height: 50vh;
+	height: 100%;
 	box-sizing: border-box;
 	position: relative;
 	overflow-y: hidden;
@@ -71,22 +71,34 @@ footer label {
 	color: #ffffff;
 	background-color: rgba(0, 0, 0, 0.5);
 	text-align: center;
+	overflow: hidden;
 }
 .showcase-element.active .detail {
 	display: block;
 }
 .detail .title {
-	font-size: 2.5rem;
+	font-size: 1.5rem;
 	white-space: nowrap;
 }
 .detail .search {
 	display: block;
-	font-size: 5rem;
+	font-size: 3rem;
 	color: #cccccc;
 	text-shadow: .05em .05em .05em #666666;
 }
 .detail .search:hover {
 	text-shadow: .05em .05em .3em #ffffff, .05em .05em .05em #666666;
+}
+.detail .controller .pure-button {
+	padding: 0.2em 0.5em;
+}
+@media screen and (min-width: 64em) {
+	.detail .title {
+		font-size: 2.5rem;
+	}
+	.detail .search {
+		font-size: 5rem;
+	}
 }
 .showcase-element.chosen {
 	border: 1vmax solid #ffff99;
