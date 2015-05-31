@@ -34,9 +34,4 @@ require(['Firebase', './view', './event', './util'], function(Firebase, view, ev
 		});
 	};
 	event.registerFooterEvent(vote);
-
-	// 投票されたら 表示更新
-	votes.on('child_changed', function(childSnapshot, prevChildName) {
-		if (childSnapshot.key() === '_dummy') {return;}
-	});
 });
