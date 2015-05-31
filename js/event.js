@@ -50,6 +50,27 @@ define(['view'], function(view) {
 					'投票ありがとうございます. 結果発表をお待ちください.'
 				);
 			});
+		},
+		// 開票時間になった時のイベント登録処理
+		'registerOnDeadLine': function() {
+			var deadline = new Date('1 June 2015 18:00 GMT+0900');
+			var timerId;
+			timerId = setInterval(function() {
+				var now = new Date();
+				if (now >= deadline) {
+					clearInterval(timerId);
+
+					var voteButton = document.querySelector('#vote');
+					voteButton.setAttribute('disabled', true);
+					voteButton.classList.add('pure-button-disabled');
+
+					view.showModal(
+						'Now Is The Time!!',
+						'<a href="./result/">結果発表:<i class="fa fa-arrow-right"></i></a>',
+						true
+					);
+				}
+			}, 60000)
 		}
 	};
 });

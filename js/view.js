@@ -73,7 +73,7 @@ define(['./util'], function(util) {
 			changeChosen(rank, title);
 		},
 		// modalの表示
-		'showModal': function(title, text) {
+		'showModal': function(title, text, useRawHTML) {
 			// 既存のを消す(無いとは思うけど)
 			if (document.querySelector('#modal')) {
 				document.body.removeChild(document.querySelector('#modal'));
@@ -86,7 +86,8 @@ define(['./util'], function(util) {
 			var titleE = e.querySelector('.title');
 			titleE.textContent = title;
 			var textE = e.querySelector('.text');
-			textE.textContent = text;
+			if (useRawHTML) {textE.innerHTML = text;}
+			else {textE.textContent = text;}
 
 			// [x]押したら閉じる
 			var closeButton = e.querySelector('.close');

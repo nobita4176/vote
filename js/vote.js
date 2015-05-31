@@ -34,4 +34,6 @@ require(['Firebase', './view', './event', './util'], function(Firebase, view, ev
 		});
 	};
 	event.registerFooterEvent(vote);
+	// 期限が来たら投票結果ページヘのリンクを
+	event.registerOnDeadLine();
 });
