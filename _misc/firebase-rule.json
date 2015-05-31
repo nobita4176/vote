@@ -1,5 +1,6 @@
 {
   "rules": {
+    ".read": true,
     "targets": {
       ".read": true,
       ".write": "auth.isAdmin === true",
