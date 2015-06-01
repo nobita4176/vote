@@ -10,6 +10,9 @@ requirejs.config({
 
 // main
 require(['Firebase', './view', './event', './util'], function(Firebase, view, event, util) {
+	// フォームをリセット
+	event.resetForm();
+
 	// Firebaseインスタンス
 	var firebase = new Firebase('https://analoggamelab-vote.firebaseio.com/');
 

@@ -1,4 +1,4 @@
-define(['view'], function(view) {
+define(['./view'], function(view) {
 	return {
 		// showcaseのイベント登録処理
 		'registerShowcaseEvent': function() {
@@ -66,7 +66,18 @@ define(['view'], function(view) {
 						true
 					);
 				}
-			}, 60000)
+			}, 60000);
+		},
+		// フォームをリセット
+		'resetForm': function() {
+			var nameForm = document.querySelector('#name');
+			var chosenForm = document.querySelector('#chosen');
+
+			nameForm.value = '';
+			var values = Array.prototype.forEach.call(
+				chosenForm.querySelectorAll('input'),
+				function(e) {e.value = '';}
+			);
 		}
 	};
 });
