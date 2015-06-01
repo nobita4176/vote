@@ -23,7 +23,7 @@
           ".validate": "newData.isString()"
         },
         "datetime": {
-          ".validate": "newData.isNumber() && newData.val() < 1433084400000"
+          ".validate": "newData.isNumber() && newData.val() < 1433149200000"
         }
       }
     }
