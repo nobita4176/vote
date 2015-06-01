@@ -126,3 +126,12 @@ footer label {
 	top: 10px; right: 10px;
 	padding: 0.5em;
 }
+#chart {
+	height: 100vh;
+}
+#chart-legend {
+	overflow-x: hidden;
+}
+#chart-legend ul {
+	list-style-type: none;
+}

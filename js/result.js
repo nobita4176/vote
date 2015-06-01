@@ -10,6 +10,8 @@ requirejs.config({
 });
 
 require(['Firebase', 'Chart', './compile', './chart'], function(Firebase, Chart, compile, chart) {
+	chart.fit();
+
 	// Firebaseインスタンス
 	var firebase = new Firebase('https://analoggamelab-vote.firebaseio.com/');
 	var initialized = false;
@@ -17,7 +19,7 @@ require(['Firebase', 'Chart', './compile', './chart'], function(Firebase, Chart,
 	// 最初にグラフを作る
 	firebase.once('value', function(snapshot) {
 		var r = compile.compileResult(snapshot);
-		chart.define(r.targetNames, r.rawVotes, r.uniqueVotes);
+		chart.initialize(r.targetNames, r.rawVotes, r.uniqueVotes);
 
 		initialized = true;
 	});
